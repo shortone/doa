@@ -7,7 +7,19 @@
   "dependencies": {
     "express": "3.2.4",
     "jade": "*",
-    "sass": "*"
+    "js-yaml": "~2.0.5",
+    "log4js": "~0.6.5",
+    "sass": "*",
+    "underscore": "~1.4.4"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-bump": "~0.0.2",
+    "grunt-contrib-jshint": "~0.3.0",
+    "grunt-jasmine-node": "~0.0.6",
+    "jasmine-node": "~1.4.0",
+    "sandboxed-module": "~0.2.0",
+    "temp": "~0.5.0"
   },
   "homepage": "https://github.com/AlphaHydrae/doa",
   "author": "Alpha Hydrae (https://github.com/AlphaHydrae)",

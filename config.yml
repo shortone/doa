@@ -1,0 +1,7 @@
+services:
+  website:
+    name: "My Website"
+    token: "150736498083750879245"
+  backup:
+    name: "My Backup Script"
+    token: "684678979856168798646"
