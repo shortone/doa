@@ -1,9 +1,7 @@
 extends layout
 
 block content
-  table#services.table
-    tbody
-      each service, name in config.services
-        tr
-          th= name
-          td foo
+  #watches
+    each watch, name in config.watches
+      .watch
+        = watch.title

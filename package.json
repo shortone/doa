@@ -9,8 +9,8 @@
     "express": "3.2.4",
     "jade": "*",
     "js-yaml": "~2.0.5",
+    "less-middleware": "~0.1.11",
     "log4js": "~0.6.5",
-    "sass": "*",
     "underscore": "~1.4.4"
   },
   "devDependencies": {

@@ -1,10 +1,14 @@
 
-/*
- * GET home page.
- */
-require('js-yaml');
-
 exports.index = function(req, res){
-  var config = require('../config.yml');
+  var config = {
+    watches : {
+      website : {
+        title : 'My Website'
+      },
+      backup : {
+        title : 'My Backup Script'
+      }
+    }
+  };
   res.render('index', { title: 'DOA', config: config });
 };
