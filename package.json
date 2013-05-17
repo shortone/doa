@@ -1,8 +1,9 @@
 {
   "name": "doa",
   "version": "0.0.1",
+  "main": "./index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node lib/start.js"
   },
   "dependencies": {
     "express": "3.2.4",
