@@ -5,6 +5,24 @@ body {
   font-family: "Helvetica Neue", Sans-Serif;
 }
 
+.rounded-corners (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.gradient (@from: #20416A, @to: #3D69A5) {
+  background-color: @to;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(@from),  to(@to));
+  background-image: -webkit-linear-gradient(top, @from, @to);
+  background-image: -moz-linear-gradient(top, @from, @to);
+  background-image: -o-linear-gradient(top, @from, @to);
+  background-image: -ms-linear-gradient(top, @from, @to);
+  background-image: linear-gradient(top, @from, @to);
+}
+
 h1 {
   width: 100%;
   margin: 2em 0 2em 0;
@@ -23,11 +41,68 @@ h1 {
 #watches {
   width: 30%;
   margin: 0 auto;
-  border: 1px solid blue;
 
   .watch {
     margin: 0 0 1em 0;
     padding: 1em;
-    border: 1px solid green;
+    border: 1px solid #c0c0c0;
+    .rounded-corners;
+    font-size: 1.4em;
+
+    .title {
+      float: left;
+      width: 60%;
+    }
+
+    .status {
+      float: left;
+      width: 40%;
+      text-align: right;
+      font-family: "Denk One", "Helvetica Neue", Sans-Serif;
+    }
+
+    &.up {
+      .gradient(#66FF66, #B2FFB2);
+
+      .status {
+        color: #143314;
+      }
+    }
+
+    &.going-up {
+      .gradient(#FFFF66, #FFFFA3);
+
+      .status {
+        color: #4C4C1F;
+      }
+    }
+
+    &.going-down {
+      .gradient(#FF9933, #FFC285);
+
+      .status {
+        color: #4C2E0F;
+      }
+    }
+
+    &.down {
+      .gradient(#FF3300, #FF8566);
+
+      .status {
+        color: #661400;
+      }
+    }
+
+    &.new {
+      .gradient(#999999, #CCCCCC);
+
+      .status {
+        color: #333333;
+      }
+    }
+
+    br {
+      clear: both;
+    }
   }
 }

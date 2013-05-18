@@ -8,7 +8,9 @@ var Watches = function(app) {
 _.extend(Watches.prototype, {
 
   index : function(req, res) {
-    res.json([]);
+    this.app.db.getWatches(function(err, watches) {
+      res.json(watches);
+    });
   }
 });
 

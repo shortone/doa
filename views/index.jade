@@ -2,6 +2,10 @@ extends layout
 
 block content
   #watches
-    each watch, name in config.watches
-      .watch
-        = watch.title
+    each watch in watches
+      .watch(class = watch.status)
+        .title
+          = watch.title
+        .status
+          = t('watch.status.' + watch.status)
+        br

@@ -8,17 +8,9 @@ var Home = function(app) {
 _.extend(Home.prototype, {
 
   index : function(req, res) {
-    var config = {
-      watches : {
-        website : {
-          title : 'My Website'
-        },
-        backup : {
-          title : 'My Backup Script'
-        }
-      }
-    };
-    res.render('index', { title: 'DOA', config: config });
+    this.app.db.getWatches(function(err, watches) {
+      res.render('index', { watches : watches });
+    });
   }
 });
 

@@ -1,0 +1,12 @@
+{
+  "title": "DOA",
+  "watch": {
+    "status": {
+      "up": "It's alive!",
+      "going-up": "Looks alive",
+      "going-down": "Smells dead",
+      "down": "It's dead Jim!",
+      "new": "Waiting"
+    }
+  }
+}
