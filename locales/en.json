@@ -1,6 +1,8 @@
 {
   "title": "DOA",
   "watch": {
+    "titlePlaceholder": "Name",
+    "save": "Save",
     "status": {
       "up": "It's alive!",
       "going-up": "Looks alive",

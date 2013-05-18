@@ -1,11 +1,19 @@
 extends layout
 
 block content
-  #watches
-    each watch in watches
-      .watch(class = watch.status)
-        .title
-          = watch.title
-        .status
-          = t('watch.status.' + watch.status)
+  .container
+    p#info Lorem ipsum dolor sit amet
+    #watches
+      form.new(action = '/api/watches', method='POST')
+        .contents
+          input.name(type = 'text', placeholder = t('watch.titlePlaceholder'))
+          button.submit.btn-primary(type = 'submit')= t('watch.save')
+        button.new.btn(type = 'button') +
         br
+      each watch in watches
+        .watch(class = watch.status)
+          .title
+            = watch.title
+          .status
+            = t('watch.status.' + watch.status)
+          br
