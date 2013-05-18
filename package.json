@@ -2,10 +2,12 @@
   "name": "doa",
   "version": "0.0.1",
   "main": "./index.js",
+  "bin": "./bin/doa",
   "scripts": {
     "start": "node lib/start.js"
   },
   "dependencies": {
+    "commander": "~1.1.1",
     "connect-assets": "~2.4.3",
     "express": "3.2.4",
     "express-namespace": "0.1.1",
@@ -26,6 +28,7 @@
     "temp": "~0.5.0"
   },
   "homepage": "https://github.com/AlphaHydrae/doa",
+  "bugs": "https://github.com/AlphaHydrae/doa/issues",
   "author": "Alpha Hydrae (https://github.com/AlphaHydrae)",
   "repository": {
     "type": "git",
