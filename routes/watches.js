@@ -11,6 +11,12 @@ _.extend(Watches.prototype, {
     this.app.db.getWatches(function(err, watches) {
       res.json(watches);
     });
+  },
+
+  create : function(req, res) {
+    this.app.db.addWatch(req.body, function(err, watch) {
+      res.json(watch);
+    });
   }
 });
 

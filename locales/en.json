@@ -1,8 +1,8 @@
 {
   "title": "DOA",
   "watch": {
-    "titlePlaceholder": "Name",
-    "save": "Save",
+    "titlePlaceholder": "Add a new watch",
+    "save": "Add",
     "status": {
       "up": "It's alive!",
       "down": "Smells dead",
