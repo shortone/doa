@@ -5,9 +5,7 @@
     "save": "Save",
     "status": {
       "up": "It's alive!",
-      "going-up": "Looks alive",
-      "going-down": "Smells dead",
-      "down": "It's dead Jim!",
+      "down": "Smells dead",
       "new": "Waiting"
     }
   }
