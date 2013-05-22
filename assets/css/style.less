@@ -30,6 +30,7 @@ h1 {
   width: 100%;
   margin: 2em 0 1em 0;
   text-align: center;
+  font-family: "Denk One", "Helvetica Neue", Sans-Serif;
 
   a {
     text-decoration: none;
@@ -73,38 +74,40 @@ h1 {
 
     .title {
       float: left;
+      margin: 0;
+      padding: 0;
       width: 60%;
+      font-size: 1em;
+      line-height: 1.6em;
+      font-weight: normal;
     }
 
     .status {
       float: left;
       width: 40%;
       text-align: right;
-      font-family: "Denk One", "Helvetica Neue", Sans-Serif;
+
+      li {
+        text-align: left;
+      }
     }
 
     &.up {
-      .gradient(#66FF66, #B2FFB2);
-
-      .status {
-        color: #143314;
-      }
+      background-color: #ADFFAD;
+      border: 1px solid #99FF99;
+      color: #2E4C2E;
     }
 
     &.down {
-      .gradient(#FF3300, #FF8566);
-
-      .status {
-        color: #661400;
-      }
+      background-color: #FF9999;
+      border: 1px solid #CC7A7A;
+      color: #4C2E2E;
     }
 
     &.new {
-      .gradient(#999999, #CCCCCC);
-
-      .status {
-        color: #333333;
-      }
+      background-color: #D6EBFF;
+      border: 1px solid #C2E0FF;
+      color: #2E3D4C;
     }
 
     br {

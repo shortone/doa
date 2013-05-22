@@ -1,5 +1,11 @@
 
 var Watch = Backbone.Model.extend({
+
+  validate : function(attrs, options) {
+    if (!attrs.title) {
+      return "title.blank";
+    }
+  }
 });
 
 var Watches = Backbone.Collection.extend({
@@ -37,7 +43,6 @@ var WatchView = Backbone.Marionette.ItemView.extend({
   onRender : function() {
     this.$el.addClass(this.model.get('status'));
     this.ui.title.text(this.model.get('title'));
-    this.ui.status.text(this.model.get('status'));
   }
 });
 
@@ -61,7 +66,12 @@ var WatchesView = Backbone.Marionette.CompositeView.extend({
     e.preventDefault();
     this.collection.create({
       title : this.ui.title.val()
-    }, { wait : true });
+    }, {
+      wait : true,
+      success : _.bind(function() {
+        this.ui.title.val('');
+      }, this)
+    });
   },
 
   updateSubmit : function() {
