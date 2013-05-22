@@ -1,16 +1,12 @@
 extends layout
 
-block content
-  .container
-    p#info Lorem ipsum dolor sit amet
-    #watches
-      form.form-inline.new(action = '/api/watches', method='POST')
-        input.name.input-xlarge(type = 'text', placeholder = t('watch.titlePlaceholder'))
-        button.submit.btn.btn-primary(type = 'submit', disabled='disabled')= t('watch.save')
-      each watch in watches
-        .watch(class = watch.status)
-          .title
-            = watch.title
-          .status
-            = t('watch.status.' + watch.status)
-          br
+block body
+  body(data-watches = watches)
+    h1
+      a(href = '/')= t('title')
+    script#template-app(type = 'text/template')
+      include _app
+    script#template-watches(type = 'text/template')
+      include _watches
+    script#template-watch(type = 'text/template')
+      include _watch

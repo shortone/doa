@@ -1,6 +1,3 @@
-//= require ./underscore
-//= require ./jquery
-//= require ./backbone
-//= require ./backbone.marionette
-//= require ./bootstrap
+//= require ./vendor/index
+//= require ./init
 //= require ./watches

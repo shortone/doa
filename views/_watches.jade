@@ -1,0 +1,4 @@
+form.form-inline.new(action = '/api/watches', method='POST')
+  input.name.input-xlarge(type = 'text', placeholder = t('watch.titlePlaceholder'))
+  button.submit.btn.btn-primary(type = 'submit', disabled='disabled')= t('watch.save')
+.watches

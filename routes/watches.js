@@ -1,11 +1,8 @@
 
-var _ = require('underscore');
+var _ = require('underscore'),
+    uuid = require('node-uuid');
 
-var Watches = function(app) {
-  this.app = app;
-};
-
-_.extend(Watches.prototype, {
+module.exports = require('./res').create({
 
   index : function(req, res) {
     this.app.db.getWatches(function(err, watches) {
@@ -14,10 +11,11 @@ _.extend(Watches.prototype, {
   },
 
   create : function(req, res) {
-    this.app.db.addWatch(req.body, function(err, watch) {
+
+    var watch = _.extend(_.pick(req.body, 'title'), { status : 'new', token : uuid.v4() });
+
+    this.app.db.addWatch(watch, function(err, watch) {
       res.json(watch);
     });
   }
 });
-
-module.exports = Watches;

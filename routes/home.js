@@ -1,11 +1,5 @@
 
-var _ = require('underscore');
-
-var Home = function(app) {
-  this.app = app;
-};
-
-_.extend(Home.prototype, {
+module.exports = require('./res').create({
 
   index : function(req, res) {
     this.app.db.getWatches(function(err, watches) {
@@ -13,5 +7,3 @@ _.extend(Home.prototype, {
     });
   }
 });
-
-module.exports = Home;
