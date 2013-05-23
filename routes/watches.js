@@ -17,5 +17,11 @@ module.exports = require('./res').create({
     this.app.db.addWatch(watch, function(err, watch) {
       res.json(watch);
     });
+  },
+
+  destroy : function(req, res) {
+    this.app.db.removeWatch(req.params.watch, function(err) {
+      res.send(204);
+    });
   }
 });

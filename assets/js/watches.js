@@ -1,6 +1,9 @@
 
 var Watch = Backbone.Model.extend({
 
+  urlRoot : '/api/watches',
+  idAttribute : 'token',
+
   validate : function(attrs, options) {
     if (!attrs.title) {
       return "title.blank";
@@ -11,7 +14,6 @@ var Watch = Backbone.Model.extend({
 var Watches = Backbone.Collection.extend({
 
   url : '/api/watches',
-  idAttribute : 'token',
   model : Watch
 });
 
@@ -40,9 +42,17 @@ var WatchView = Backbone.Marionette.ItemView.extend({
     status : '.status'
   },
 
+  events : {
+    'click .delete' : 'deleteWatch'
+  },
+
   onRender : function() {
     this.$el.addClass(this.model.get('status'));
     this.ui.title.text(this.model.get('title'));
+  },
+
+  deleteWatch : function() {
+    this.model.destroy({ wait : true });
   }
 });
 
