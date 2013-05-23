@@ -41,11 +41,13 @@ var WatchView = Backbone.Marionette.ItemView.extend({
     title : '.title',
     status : '.status',
     statusLabel : '.status .btn:first',
-    statusButtons : '.status .btn'
+    statusButtons : '.status .btn',
+    details : '.details'
   },
 
   events : {
-    'click .delete' : 'deleteWatch'
+    'click .delete' : 'deleteWatch',
+    'click .btn:first' : 'toggleDetails'
   },
 
   onRender : function() {
@@ -55,6 +57,10 @@ var WatchView = Backbone.Marionette.ItemView.extend({
 
   deleteWatch : function() {
     this.model.destroy({ wait : true });
+  },
+
+  toggleDetails : function() {
+    this.ui.details.slideToggle();
   },
 
   updateStatus : function() {
