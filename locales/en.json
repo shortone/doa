@@ -8,7 +8,9 @@
       "daily": "Daily",
       "weekly": "Weekly",
       "monthly": "Monthly"
-    },
+    }
+  },
+  "templates": {
     "status": {
       "up": "It's alive!",
       "down": "Smells dead",

@@ -1,7 +1,7 @@
 extends layout
 
 block body
-  body(data-watches = watches)
+  body(data-watches = watches, data-translations = JSON.stringify(t('templates', { returnObjectTrees : true })))
     h1
       a(href = '/')= t('title')
     script#template-app(type = 'text/template')

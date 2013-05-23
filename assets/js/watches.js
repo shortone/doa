@@ -39,7 +39,9 @@ var WatchView = Backbone.Marionette.ItemView.extend({
   template : '#template-watch',
   ui : {
     title : '.title',
-    status : '.status'
+    status : '.status',
+    statusLabel : '.status .btn:first',
+    statusButtons : '.status .btn'
   },
 
   events : {
@@ -47,12 +49,27 @@ var WatchView = Backbone.Marionette.ItemView.extend({
   },
 
   onRender : function() {
-    this.$el.addClass(this.model.get('status'));
     this.ui.title.text(this.model.get('title'));
+    this.updateStatus();
   },
 
   deleteWatch : function() {
     this.model.destroy({ wait : true });
+  },
+
+  updateStatus : function() {
+
+    this.$el.removeClass('up down new');
+    this.$el.addClass(this.model.get('status'));
+
+    this.ui.statusLabel.text(Translations.status[this.model.get('status')]);
+
+    this.ui.statusButtons.removeClass('btn-success btn-danger');
+    if (this.model.get('status') == 'up') {
+      this.ui.statusButtons.addClass('btn-success');
+    } else if (this.model.get('status') == 'down') {
+      this.ui.statusButtons.addClass('btn-danger');
+    }
   }
 });
 
