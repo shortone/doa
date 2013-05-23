@@ -12,7 +12,7 @@ module.exports = require('./res').create({
 
   create : function(req, res) {
 
-    var watch = _.extend(_.pick(req.body, 'title'), { status : 'new', token : uuid.v4() });
+    var watch = _.defaults({ status : 'new', token : uuid.v4() }, _.pick(req.body, 'title', 'interval'), { interval : 'daily' });
 
     this.app.db.addWatch(watch, function(err, watch) {
       res.json(watch);

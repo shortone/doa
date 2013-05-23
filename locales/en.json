@@ -1,8 +1,14 @@
 {
   "title": "doa",
   "watch": {
-    "titlePlaceholder": "Add a new watch",
-    "save": "Add",
+    "titlePlaceholder": "Add something to watch",
+    "save": "Save",
+    "interval": {
+      "hourly": "Hourly",
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly"
+    },
     "status": {
       "up": "It's alive!",
       "down": "Smells dead",

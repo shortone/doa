@@ -1,4 +1,9 @@
 form.form-inline.new(action = '/api/watches', method='POST')
-  input.name.input-xlarge(type = 'text', placeholder = t('watch.titlePlaceholder'))
+  input.name.input-large(type = 'text', placeholder = t('watch.titlePlaceholder'))
+  select.interval.input-small
+    option(value = 'hourly')= t('watch.interval.hourly')
+    option(value = 'daily', selected = 'selected')= t('watch.interval.daily')
+    option(value = 'weekly')= t('watch.interval.weekly')
+    option(value = 'monthly')= t('watch.interval.monthly')
   button.submit.btn.btn-primary(type = 'submit', disabled='disabled')= t('watch.save')
 .watches

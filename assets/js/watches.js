@@ -60,13 +60,15 @@ var WatchesView = Backbone.Marionette.CompositeView.extend({
 
   template : '#template-watches',
   ui : {
-    title : 'form input.name',
+    title : 'form :input.name',
+    interval : 'form :input.interval',
     submit : 'form .submit'
   },
 
   events : {
     'submit form' : 'createWatch',
-    'keyup form :input' : 'updateSubmit'
+    'keyup form :input' : 'updateSubmit',
+    'change form :input' : 'updateSubmit'
   },
 
   itemView : WatchView,
@@ -75,13 +77,17 @@ var WatchesView = Backbone.Marionette.CompositeView.extend({
   createWatch : function(e) {
     e.preventDefault();
     this.collection.create({
-      title : this.ui.title.val()
+      title : this.ui.title.val(),
+      interval : this.ui.interval.val()
     }, {
       wait : true,
-      success : _.bind(function() {
-        this.ui.title.val('');
-      }, this)
+      success : _.bind(this.watchCreated, this)
     });
+  },
+
+  watchCreated : function() {
+    this.ui.title.val('');
+    this.updateSubmit();
   },
 
   updateSubmit : function() {
