@@ -1,0 +1,24 @@
+---
+- hosts: vagrant
+  sudo: yes
+  tasks:
+    - name: update cache
+      apt: update_cache=yes
+    - name: apt-get install g++
+      apt: pkg=g++ state=latest
+    - name: apt-get install make
+      apt: pkg=make state=latest
+    - name: apt-get install python-software-properties
+      apt: pkg=python-software-properties state=latest
+    - name: apt-get install python
+      apt: pkg=python state=latest
+    - name: apt-get install rsync
+      apt: pkg=rsync state=latest
+    - name: apt-get install sqlite3
+      apt: pkg=sqlite3 state=latest
+    - name: apt-get install libsqlite3-dev
+      apt: pkg=libsqlite3-dev state=latest
+    - name: add nodejs repository
+      apt_repository: repo=ppa:chris-lea/node.js state=present
+    - name: apt-get install nodejs
+      apt: pkg=nodejs state=latest
