@@ -1,7 +1,7 @@
 {
   "title": "doa",
   "watch": {
-    "titlePlaceholder": "Add something to watch",
+    "namePlaceholder": "Something to watch",
     "save": "Save",
     "interval": {
       "hourly": "Hourly",

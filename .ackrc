@@ -1,2 +1,2 @@
---ignore-dir=lib/assets/js
+--ignore-dir=lib/assets/js/vendor
 --ignore-dir=node_modules

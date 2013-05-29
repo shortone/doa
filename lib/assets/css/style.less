@@ -43,11 +43,6 @@ h1 {
   }
 }
 
-.container {
-  width: 30%;
-  margin: 0 auto;
-}
-
 #info {
   margin: 0 0 2em 0;
   text-align: center;
@@ -72,24 +67,34 @@ h1 {
     .rounded-corners;
     font-size: 1.4em;
 
-    .title {
+    h2.name {
       float: left;
       margin: 0;
       padding: 0;
-      width: 60%;
       font-size: 1em;
       line-height: 1.6em;
       font-weight: normal;
     }
 
-    .status {
-      float: left;
-      width: 40%;
-      text-align: right;
+    form {
+      display: none;
 
-      li {
-        text-align: left;
+      .interval {
+        margin: 0 0 0 1em;
       }
+
+      .cancel {
+        float: right;
+        margin: 0 1em 0 0;
+      }
+
+      .submit {
+        float: right;
+      }
+    }
+
+    .status {
+      float: right;
     }
 
     .details {
@@ -120,6 +125,12 @@ h1 {
       background-color: #D6EBFF;
       border: 1px solid #C2E0FF;
       color: #2E3D4C;
+    }
+
+    &.editing {
+      background-color: #FFFFCC;
+      border: 1px solid #CCCC7A;
+      color: #1A1A0F;
     }
 
     br {
