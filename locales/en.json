@@ -11,10 +11,12 @@
     }
   },
   "templates": {
+    "lastPing": "Last ping received: %{time}",
+    "pingInstructions": "Send a POST request to this URL to start watching.",
     "status": {
-      "up": "It's alive!",
-      "down": "Smells dead",
-      "new": "Waiting"
+      "up": "Last seen %{time} ago",
+      "down": "Not seen for %{time}",
+      "new": "Waiting for ping"
     }
   }
 }
