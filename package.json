@@ -10,6 +10,7 @@
     "commander": "~1.1.1",
     "connect-assets": "~2.4.3",
     "cron": "1.0.1",
+    "daemon": "1.1.0",
     "express": "3.2.4",
     "express-namespace": "0.1.1",
     "i18next": "~1.6.7",
