@@ -4,7 +4,7 @@
   "main": "./index.js",
   "bin": "./bin/doa",
   "scripts": {
-    "start": "node lib/start.js"
+    "start": "node bin/doa"
   },
   "dependencies": {
     "commander": "~1.1.1",
