@@ -17,6 +17,22 @@
       "up": "Last seen %{time} ago",
       "down": "Not seen for %{time}",
       "new": "Waiting for ping"
+    },
+    "climate": {
+      "nothing": "Nothing to do",
+      "allNew": "Nothing's happening",
+      "noneDown": "All is good!",
+      "someDown": "Smells dead",
+      "allDown": "It's dead Jim",
+      "downCount": {
+        "more": "%{n} down"
+      },
+      "newCount": {
+        "more": "%{n} waiting"
+      },
+      "upCount": {
+        "more": "%{n} up"
+      }
     }
   }
 }
