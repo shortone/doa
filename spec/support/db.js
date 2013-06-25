@@ -252,19 +252,19 @@ module.exports = {
             // new, nothing to do
             { token : 'abcdef', status : 'new', interval : oneMinute },
             // live, nothing to do
-            { token : 'bcdefg', status : 'up', interval : oneMinute, lastCheckedAt : thirtySecondsBefore, lastSeenAt : thirtySecondsBefore },
+            { token : 'bcdefg', status : 'up', interval : oneMinute, lastCheckedAt : thirtySecondsBefore, lastPingedAt : thirtySecondsBefore },
             // recently down, nothing to do
-            { token : 'cdefgh', status : 'down', interval : oneMinute, lastCheckedAt : thirtySecondsBefore, lastSeenAt : thirtySecondsBefore },
+            { token : 'cdefgh', status : 'down', interval : oneMinute, lastCheckedAt : thirtySecondsBefore, lastPingedAt : thirtySecondsBefore },
             // up but not seen in last interval, downed++
-            { token : 'defghi', status : 'up', interval : oneMinute, lastCheckedAt : twoMinutesBefore, lastSeenAt : twoMinutesBefore },
+            { token : 'defghi', status : 'up', interval : oneMinute, lastCheckedAt : twoMinutesBefore, lastPingedAt : twoMinutesBefore },
             // same, downed++
-            { token : 'efghij', status : 'up', interval : oneMinute, lastCheckedAt : threeMinutesBefore, lastSeenAt : threeMinutesBefore },
+            { token : 'efghij', status : 'up', interval : oneMinute, lastCheckedAt : threeMinutesBefore, lastPingedAt : threeMinutesBefore },
             // up but not checked in last interval, checked++
-            { token : 'fghijk', status : 'up', interval : fiveMinutes, lastCheckedAt : tenMinutesBefore, lastSeenAt : twoMinutesBefore },
+            { token : 'fghijk', status : 'up', interval : fiveMinutes, lastCheckedAt : tenMinutesBefore, lastPingedAt : twoMinutesBefore },
             // down and not checked in last interval, checked++
-            { token : 'ghijkl', status : 'down', interval : oneMinute, lastCheckedAt : twoMinutesBefore, lastSeenAt : threeMinutesBefore },
+            { token : 'ghijkl', status : 'down', interval : oneMinute, lastCheckedAt : twoMinutesBefore, lastPingedAt : threeMinutesBefore },
             // same, checked++
-            { token : 'hijklm', status : 'down', interval : oneMinute, lastCheckedAt : tenMinutesBefore, lastSeenAt : threeMinutesBefore }
+            { token : 'hijklm', status : 'down', interval : oneMinute, lastCheckedAt : tenMinutesBefore, lastPingedAt : threeMinutesBefore }
           ],
           updatedWatches = [
             _.extend({}, watches[0]),
