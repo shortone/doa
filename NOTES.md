@@ -1,2 +1,1 @@
-- support PATCH and PUT
 - animate class changes (jquery ui switchClass)

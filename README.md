@@ -1,6 +1,6 @@
 # doa
 
-WAT
+**Node.js periodic tasks monitoring tool.**
 
 ## Meta
 
