@@ -26,14 +26,20 @@ beforeEach(function() {
 
 describe("Memory Database", function() {
 
-  support.testDb(function() {
+  var generator = function() {
     return new MemoryDb(new Config());
-  });
+  };
+
+  support.testDb(generator);
+  support.testDbVolatility(generator);
 });
 
 describe("YAML Database", function() {
 
-  support.testDb(function() {
+  var generator = function() {
     return new YamlDb(new Config({ db : { file : path.join(tmpDir, 'db.yml') } }));
-  });
+  };
+
+  support.testDb(generator);
+  support.testDbPersistence(generator);
 });
