@@ -62,7 +62,7 @@ var newAppExpress = function(options) {
     logLevel : 'debug'
   }, options || {}));
 
-  var appExpress = new AppExpress(config);
+  var appExpress = new AppExpress({ config : config });
   config.change();
   return appExpress;
 };
