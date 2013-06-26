@@ -1,7 +1,5 @@
 
-var _ = require('underscore'),
-    log4js = require('log4js'),
-    sandbox = require('sandboxed-module');
+var _ = require('underscore');
 
 var mockData = {
 };
@@ -38,10 +36,8 @@ var log4jsMock = {
 };
 
 var Config = require('./support/mocks/config'),
-    Logger = sandbox.require('../lib/logger', {
-      requires : {
-        log4js : log4jsMock
-      }
+    Logger = require('../lib/logger').inject({
+      log4js : log4jsMock
     });
 
 var newLogger = function(name, options) {

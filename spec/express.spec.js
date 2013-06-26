@@ -2,10 +2,8 @@
 var _ = require('underscore'),
     assets = require('connect-assets'),
     express = require('express'),
-    i18n = require('i18next'),
     log4js = require('log4js'),
-    path = require('path'),
-    sandbox = require('sandboxed-module');
+    path = require('path');
 
 var appRoot = path.resolve(path.join(__dirname, '..'));
 
@@ -48,14 +46,12 @@ i18nMock.handle = function() {};
 var Config = require('./support/mocks/config'),
     Logger = require('./support/mocks/logger'),
     matchers = require('./support/matchers'),
-    AppExpress = sandbox.require('../lib/express', {
-      requires : {
-        'connect-assets' : assetsMock,
-        express : expressMock,
-        i18next : i18nMock,
-        log4js : log4jsMock,
-        './logger' : Logger
-      }
+    AppExpress = require('../lib/express').inject({
+      assets : assetsMock,
+      express : expressMock,
+      i18next : i18nMock,
+      log4js : log4jsMock,
+      Logger : Logger
     });
 
 var newAppExpress = function(options) {
