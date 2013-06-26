@@ -2,18 +2,13 @@
 var _ = require('underscore'),
     fs = require('fs-extra'),
     path = require('path'),
-    sandbox = require('sandboxed-module'),
     temp = require('temp');
 
 var matchers = require('./support/matchers'),
     support = require('./support/db'),
     Config = require('./support/mocks/config'),
-    MemoryDb = sandbox.require('../lib/db/memory', {
-      requires : {}
-    }),
-    YamlDb = sandbox.require('../lib/db/yaml', {
-      requires : {}
-    });
+    MemoryDb = require('../lib/db/memory'),
+    YamlDb = require('../lib/db/yaml');
 
 var tmpDir;
 

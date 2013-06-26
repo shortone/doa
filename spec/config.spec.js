@@ -2,13 +2,10 @@
 var _ = require('underscore'),
     fs = require('fs-extra'),
     path = require('path'),
-    sandbox = require('sandboxed-module'),
     temp = require('temp');
 
 var matchers = require('./support/matchers'),
-    Config = sandbox.require('../lib/config', {
-      requires : {}
-    });
+    Config = require('../lib/config');
 
 var tmpDir = temp.mkdirSync(),
     tmpFile = path.join(tmpDir, 'doa.yml');

@@ -1,1 +1,2 @@
 - animate class changes (jquery ui switchClass)
+- use 304 not modified
