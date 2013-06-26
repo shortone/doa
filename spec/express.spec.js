@@ -62,7 +62,8 @@ var newAppExpress = function(options) {
     logLevel : 'debug'
   }, options || {}));
 
-  var appExpress = new AppExpress({ config : config });
+  // TODO: spec router setup call
+  var appExpress = new AppExpress({ config : config, router : { setup : function() {} } });
   config.change();
   return appExpress;
 };
@@ -76,27 +77,27 @@ describe("Express", function() {
   });
 
   it("should use the configured port", function() {
-    expect(newAppExpress({ port : 1234 }).app.get('port')).toEqual(1234);
+    expect(newAppExpress({ port : 1234 }).expressApp.get('port')).toEqual(1234);
   });
 
   it("should serve views from the views directory", function() {
-    expect(newAppExpress().app.get('views')).toEqual(path.join(appRoot, 'lib', 'views'));
+    expect(newAppExpress().expressApp.get('views')).toEqual(path.join(appRoot, 'lib', 'views'));
   });
 
   it("should use jade as the view engine", function() {
-    expect(newAppExpress().app.get('view engine')).toEqual('jade');
+    expect(newAppExpress().expressApp.get('view engine')).toEqual('jade');
   });
 
   it("should not trust proxies by default", function() {
-    expect(newAppExpress().app.enabled('trust proxy')).toBe(false);
+    expect(newAppExpress().expressApp.enabled('trust proxy')).toBe(false);
   });
 
   it("should trust proxies if configured", function() {
-    expect(newAppExpress({ proxy : true }).app.enabled('trust proxy')).toBe(true);
+    expect(newAppExpress({ proxy : true }).expressApp.enabled('trust proxy')).toBe(true);
   });
 
   it("should use the configured environment", function() {
-    expect(newAppExpress({ env : 'staging' }).app.get('env')).toEqual('staging');
+    expect(newAppExpress({ env : 'staging' }).expressApp.get('env')).toEqual('staging');
   });
 
   it("should use the express dev logger in development", function() {
@@ -118,7 +119,7 @@ describe("Express", function() {
   });
 
   it("should register the i18next app helper", function() {
-    var app = newAppExpress().app;
+    var app = newAppExpress().expressApp;
     expect(i18nMock.registerAppHelper).toHaveBeenCalledWith(app);
   });
 
@@ -141,7 +142,7 @@ describe("Express", function() {
   });
 
   it("should use development middlewares in the correct order", function() {
-    var app = newAppExpress().app;
+    var app = newAppExpress().expressApp;
     expect(app.use.argsForCall).toEqual([
       [ mockData.middlewares.logger.func ],
       [ mockData.middlewares.log4js.func ],
@@ -157,7 +158,7 @@ describe("Express", function() {
   });
 
   it("should use production middlewares in the correct order", function() {
-    var app = newAppExpress({ env : 'production' }).app;
+    var app = newAppExpress({ env : 'production' }).expressApp;
     expect(app.use.argsForCall).toEqual([
       [ mockData.middlewares.log4js.func ],
       [ mockData.middlewares.bodyParser.func ],

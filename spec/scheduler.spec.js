@@ -86,7 +86,7 @@ describe("Scheduler", function() {
     var scheduler = startScheduler();
 
     runs(function() {
-      expect(scheduler.log).toHaveLogged('info', 'trigger');
+      expect(scheduler.log).toHaveLogged('info', 'checked');
     });
   });
 
