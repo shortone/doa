@@ -33,7 +33,8 @@ _.each([ 'logger', 'bodyParser', 'methodOverride', 'static', 'favicon', 'errorHa
   expressMock[name] = fakeMiddleware(name, express[name]);
 });
 
-var assetsMock = fakeMiddleware('assets', assets);
+var acceptMock = jasmine.createSpy(),
+    assetsMock = fakeMiddleware('assets', assets);
 
 var log4jsMock = {
   connectLogger : fakeMiddleware('log4js', log4js.connectLogger),
@@ -47,6 +48,7 @@ var Config = require('./support/mocks/config'),
     Logger = require('./support/mocks/logger'),
     matchers = require('./support/matchers'),
     AppExpress = require('../lib/express').inject({
+      accept : acceptMock,
       assets : assetsMock,
       express : expressMock,
       i18next : i18nMock,
@@ -69,6 +71,7 @@ var newAppExpress = function(options) {
 };
 
 describe("Express", function() {
+  // TODO: spec start/stop
 
   var appExpress;
 
@@ -137,15 +140,17 @@ describe("Express", function() {
     expect(newAppExpress().log).toHaveLogged('debug', path.join(appRoot, 'locales', '__lng__.json'));
   });
 
-  it("should log the path to static assets", function() {
+  // TODO: mock and spec buildDir
+  /*it("should log the buildDir when specified", function() {
     expect(newAppExpress().log).toHaveLogged('debug', path.join(appRoot, 'public'));
-  });
+  });*/
 
   it("should use development middlewares in the correct order", function() {
     var app = newAppExpress().expressApp;
     expect(app.use.argsForCall).toEqual([
       [ mockData.middlewares.logger.func ],
       [ mockData.middlewares.log4js.func ],
+      [ acceptMock ],
       [ mockData.middlewares.bodyParser.func ],
       [ mockData.middlewares.methodOverride.func ],
       [ i18nMock.handle ],
@@ -161,6 +166,7 @@ describe("Express", function() {
     var app = newAppExpress({ env : 'production' }).expressApp;
     expect(app.use.argsForCall).toEqual([
       [ mockData.middlewares.log4js.func ],
+      [ acceptMock ],
       [ mockData.middlewares.bodyParser.func ],
       [ mockData.middlewares.methodOverride.func ],
       [ i18nMock.handle ],
