@@ -1,12 +1,14 @@
 extends layout
 
 block body
-  #app(data-watches = watches, data-translations = JSON.stringify(t('templates', { returnObjectTrees : true })))
+  #app(ng-init = 'watches = ' + JSON.stringify(watches), data-translations = JSON.stringify(t('templates', { returnObjectTrees : true })))
     h1
       a(href = '/')= t('title')
-  script#template-app(type = 'text/template')
-    include _app
-  script#template-watches(type = 'text/template')
-    include _watches
-  script#template-watch(type = 'text/template')
-    include _watch
+    .container
+      .row-fluid
+        .span8.offset2
+          #watches(ng-controller = 'WatchesController')
+            p.info
+            include _newWatchForm
+            .watches
+              include _watch

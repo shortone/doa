@@ -1,24 +1,25 @@
-h2.name {{name}}
-.status.btn-group
-  button.btn Action
-  button.btn.dropdown-toggle(data-toggle = 'dropdown')
-    span.caret
-  ul.dropdown-menu
-    li
-      a.edit(href = '#') Edit
-    li
-      a.destroy(href = '#') Delete
-form.form-inline.edit(action = '/api/watches/{{token}}', method = 'POST')
-  input.name.input-xlarge(type = 'text', value = '{{name}}')
-  select.interval.input-small
-    option(value = '3600')= t('watch.interval.hourly')
-    option(value = '86400')= t('watch.interval.daily')
-    option(value = '592200')= t('watch.interval.weekly')
-    option(value = '2592000')= t('watch.interval.monthly')
-  input.submit.btn.btn-primary(type = 'submit', value = 'Save')
-  button.cancel.btn Cancel
-br
-.details
-  p.url
-    code http://localhost:3000/{{token}}
-  p.lastPingedAt
+.watch(ng-repeat = 'watch in watches', ng-controller = 'WatchController', ng-class = 'status')
+  h2.name {{watch.name}}
+  .status.btn-group
+    button.btn Action
+    button.btn.dropdown-toggle(data-toggle = 'dropdown')
+      span.caret
+    ul.dropdown-menu
+      li
+        a.edit(href = '#') Edit
+      li
+        a.destroy(href = '#') Delete
+  form.form-inline(ng-show = 'editing', ng-hide = '!editing')
+    input.name.input-xlarge(type = 'text', value = '{{watch.name}}')
+    select.interval.input-small
+      option(value = '3600')= t('watch.interval.hourly')
+      option(value = '86400')= t('watch.interval.daily')
+      option(value = '592200')= t('watch.interval.weekly')
+      option(value = '2592000')= t('watch.interval.monthly')
+    input.submit.btn.btn-primary(type = 'submit', value = 'Save')
+    button.cancel.btn Cancel
+  br
+  .details(ng-show = 'details', ng-hide = '!details')
+    p.url
+      code http://localhost:3000/{{watch.token}}
+    p.lastPingedAt
