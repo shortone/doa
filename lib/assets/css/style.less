@@ -1,6 +1,6 @@
 
-@import "bootstrap.css";
-@import "bootstrap-responsive.css";
+@import "bootstrap.less";
+@import "bootstrap-responsive.less";
 
 body {
   margin: 0;
@@ -98,6 +98,7 @@ h1 {
 
     .details {
       margin: 1em 0 0 0;
+      display: none;
 
       .url {
         margin: 0;
@@ -112,25 +113,25 @@ h1 {
       }
     }
 
-    &.up {
+    &.status-up {
       background-color: #ADFFAD;
       border: 1px solid #99FF99;
       color: #2E4C2E;
     }
 
-    &.down {
+    &.status-down {
       background-color: #FF9999;
       border: 1px solid #CC7A7A;
       color: #4C2E2E;
     }
 
-    &.new {
+    &.status-new {
       background-color: #D6EBFF;
       border: 1px solid #C2E0FF;
       color: #2E3D4C;
     }
 
-    &.editing {
+    &.status-editing {
       background-color: #FFFFCC;
       border: 1px solid #CCCC7A;
       color: #1A1A0F;
