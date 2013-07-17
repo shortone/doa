@@ -1,7 +1,7 @@
 extends layout
 
 block body
-  #app(ng-init = 'watches = ' + JSON.stringify(watches), data-translations = JSON.stringify(t('templates', { returnObjectTrees : true })))
+  #app(ng-init = 'watches = ' + JSON.stringify(watches) + '; translations = ' + JSON.stringify(t('templates', { returnObjectTrees : true })) + ';')
     h1
       a(href = '/')= t('title')
     .container
@@ -11,4 +11,5 @@ block body
             p.info
             include _newWatchForm
             .watches
-              include _watch
+              .watch(ng-repeat = 'watch in watches', ng-controller = 'WatchController', ng-class = 'watch|watchClass:uiStatus')
+                include _watch
