@@ -41,9 +41,6 @@ var log4jsMock = {
   levels : log4js.levels
 };
 
-var i18nMock = jasmine.createSpyObj('i18n', [ 'init', 'registerAppHelper' ]);
-i18nMock.handle = function() {};
-
 var Config = require('./support/mocks/config'),
     Logger = require('./support/mocks/logger'),
     matchers = require('./support/matchers'),
@@ -51,7 +48,6 @@ var Config = require('./support/mocks/config'),
       accept : acceptMock,
       assets : assetsMock,
       express : expressMock,
-      i18next : i18nMock,
       log4js : log4jsMock,
       Logger : Logger
     });
@@ -113,19 +109,6 @@ describe("Express", function() {
     expect(mockData.middlewares.log4js.args).toEqual([ appExpress.log.logger, { level : log4js.levels.TRACE } ]);
   });
 
-  it("should initialize i18next with the correct language and path", function() {
-    newAppExpress();
-    expect(i18nMock.init).toHaveBeenCalledWith({
-      fallbackLng : 'en',
-      resGetPath : path.join(appRoot, 'locales', '__lng__.json')
-    });
-  });
-
-  it("should register the i18next app helper", function() {
-    var app = newAppExpress().expressApp;
-    expect(i18nMock.registerAppHelper).toHaveBeenCalledWith(app);
-  });
-
   it("should configure the assets manager with the correct path", function() {
     newAppExpress();
     expect(mockData.middlewares.assets.args[0].src).toEqual(path.join(appRoot, 'lib', 'assets'));
@@ -134,10 +117,6 @@ describe("Express", function() {
   it("should configure the static middleware with the correct path", function() {
     newAppExpress();
     expect(mockData.middlewares.static.args).toEqual([ path.join(appRoot, 'public') ]);
-  });
-
-  it("should log the path to translations", function() {
-    expect(newAppExpress().log).toHaveLogged('debug', path.join(appRoot, 'locales', '__lng__.json'));
   });
 
   // TODO: mock and spec buildDir
@@ -153,7 +132,6 @@ describe("Express", function() {
       [ acceptMock ],
       [ mockData.middlewares.bodyParser.func ],
       [ mockData.middlewares.methodOverride.func ],
-      [ i18nMock.handle ],
       [ app.router ],
       [ mockData.middlewares.favicon.func ],
       [ mockData.middlewares.assets.func ],
@@ -169,7 +147,6 @@ describe("Express", function() {
       [ acceptMock ],
       [ mockData.middlewares.bodyParser.func ],
       [ mockData.middlewares.methodOverride.func ],
-      [ i18nMock.handle ],
       [ app.router ],
       [ mockData.middlewares.favicon.func ],
       [ mockData.middlewares.assets.func ],

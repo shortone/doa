@@ -1,9 +1,9 @@
 extends layout
 
 block body
-  #app(ng-init = 'watches = ' + JSON.stringify(watches) + '; translations = ' + JSON.stringify(t('templates', { returnObjectTrees : true })) + ';')
+  #app(ng-init = 'watches = ' + JSON.stringify(watches))
     h1
-      a(href = '/')= t('title')
+      a(href = '/') {{'title'|t}}
     .container
       .row-fluid
         .span8.offset2

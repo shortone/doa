@@ -1,8 +1,8 @@
 form.form-inline.new(ng-submit = 'addWatch()')
-  input.input-large(ng-model = 'newName', type = 'text', placeholder = t('watch.namePlaceholder'))
+  input.input-large(ng-model = 'newName', type = 'text', placeholder = '{{"watch.namePlaceholder"|t}}')
   select.input-small(ng-model = 'newInterval')
-    option(value = '3600')= t('watch.interval.hourly')
-    option(value = '86400')= t('watch.interval.daily')
-    option(value = '592200')= t('watch.interval.weekly')
-    option(value = '2592000')= t('watch.interval.monthly')
-  button.submit.btn.btn-primary(type = 'submit', ng-disabled = '!newName.trim().length')= t('watch.save')
+    option(value = '3600') {{'watch.interval.hourly'|t}}
+    option(value = '86400') {{'watch.interval.daily'|t}}
+    option(value = '592200') {{'watch.interval.weekly'|t}}
+    option(value = '2592000') {{'watch.interval.monthly'|t}}
+  button.submit.btn.btn-primary(type = 'submit', ng-disabled = '!newName.trim().length') {{'watch.save'|t}}
