@@ -1,10 +1,10 @@
 .clearfix
   h2.name(ng-show = 'ui.status != "editing"') {{watch.name}}
   .status.btn-group
-    button.btn.btn-small(ng-click = 'ui.status == "editing" ? save() : toggleDetails()', ng-class = 'ui.status == "editing" ? "btn-primary" : null', ng-disabled = '!watch.name.trim().length') {{actionText()}}
-    button.btn.btn-small(ng-click = 'toggleEdit()', ng-disabled = 'ui.busy')
+    button.btn.btn-small(ng-click = 'ui.status == "editing" ? save() : toggleDetails()', ng-class = 'watch|watchButtonClass:ui:true', ng-disabled = '!watch.name.trim().length') {{actionText()}}
+    button.btn.btn-small(ng-click = 'toggleEdit()', ng-disabled = 'ui.busy', ng-class = 'watch|watchButtonClass:ui')
       i(ng-class = 'ui.status != "editing" ? "icon-edit" : "icon-ban-circle"')
-    button.btn.btn-small.dropdown-toggle(data-toggle = 'dropdown')
+    button.btn.btn-small.dropdown-toggle(data-toggle = 'dropdown', ng-class = 'watch|watchButtonClass:ui')
       span.caret
     ul.dropdown-menu
       li

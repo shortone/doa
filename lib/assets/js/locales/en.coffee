@@ -17,8 +17,8 @@ window.doa.i18n.en =
     lastPing: "Last ping received: __time__"
     pingInstructions: "Send a POST request to this URL to start watching."
     status:
-      up: "Last seen %{time} ago"
-      down: "Not seen for %{time}"
+      up: "Last seen __time__ ago"
+      down: "Not seen for __time__"
       new: "Waiting for ping"
     climate:
       nothing: "Nothing to do"
