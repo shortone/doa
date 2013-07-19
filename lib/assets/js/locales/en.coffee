@@ -4,6 +4,8 @@ window.doa.i18n ?= {};
 window.doa.i18n.en =
   translation:
     title: "doa"
+    common:
+      save: "Save"
     watch:
       namePlaceholder: "Something to watch"
       save: "Save"

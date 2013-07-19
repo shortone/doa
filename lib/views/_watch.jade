@@ -1,26 +1,18 @@
-h2.name {{watch.name}}
-.status.btn-group
-  button.btn.btn-small Action
-  button.btn.btn-small(ng-click = 'toggleDetails()')
-    i.icon-info-sign
-  button.btn.btn-small
-    i.icon-edit
-  button.btn.btn-small.dropdown-toggle(data-toggle = 'dropdown')
-    span.caret
-  ul.dropdown-menu
-    li
-      a.destroy(ng-click = 'destroy()') Delete
-form.form-inline(ng-show = 'editing', ng-hide = '!editing')
-  input.name.input-xlarge(type = 'text', value = '{{watch.name}}')
-  select.interval.input-small
-    option(value = '3600')= 'watch.interval.hourly'
-    option(value = '86400')= 'watch.interval.daily'
-    option(value = '592200')= 'watch.interval.weekly'
-    option(value = '2592000')= 'watch.interval.monthly'
-  input.submit.btn.btn-primary(type = 'submit', value = 'Save')
-  button.cancel.btn Cancel
-br
-.details(ng-show = 'details', ng-animate = '{show: "slide-open", hide: "slide-close"}')
+.clearfix
+  h2.name(ng-show = 'ui.status != "editing"') {{watch.name}}
+  .status.btn-group
+    button.btn.btn-small(ng-click = 'ui.status == "editing" ? save() : toggleDetails()', ng-class = 'ui.status == "editing" ? "btn-primary" : null', ng-disabled = '!watch.name.trim().length') {{actionText()}}
+    button.btn.btn-small(ng-click = 'toggleEdit()', ng-disabled = 'ui.busy')
+      i(ng-class = 'ui.status != "editing" ? "icon-edit" : "icon-ban-circle"')
+    button.btn.btn-small.dropdown-toggle(data-toggle = 'dropdown')
+      span.caret
+    ul.dropdown-menu
+      li
+        a.destroy(ng-click = 'destroy()') Delete
+  form.form-inline(ng-show = 'ui.status == "editing"')
+    input.name.input-xlarge(type = 'text', ng-model = 'watch.name')
+    select.interval.input-small(ng-model = 'watch.interval', ng-options = 'i.value as "watch.interval." + i.name|t for i in watchIntervals')
+.details(ng-show = 'ui.detailed', ng-animate = '{show: "slide-open", hide: "slide-close"}')
   p.url
     code http://localhost:3000/{{watch.token}}
   p.lastPingedAt {{lastPingedAt()}}

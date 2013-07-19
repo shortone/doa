@@ -11,5 +11,5 @@ block body
             p.info
             include _newWatchForm
             .watches
-              .watch(ng-repeat = 'watch in watches', ng-controller = 'WatchController', ng-class = 'watch|watchClass:uiStatus')
+              .watch(ng-repeat = 'watch in watches', ng-controller = 'WatchController', ng-class = 'watch|watchClass:ui').clearfix
                 include _watch
