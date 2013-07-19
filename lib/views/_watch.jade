@@ -9,7 +9,7 @@ h2.name {{watch.name}}
     span.caret
   ul.dropdown-menu
     li
-      a.destroy(href = '#') Delete
+      a.destroy(ng-click = 'destroy()') Delete
 form.form-inline(ng-show = 'editing', ng-hide = '!editing')
   input.name.input-xlarge(type = 'text', value = '{{watch.name}}')
   select.interval.input-small
