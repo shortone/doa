@@ -7,7 +7,7 @@ window.doa.i18n.en =
     common:
       save: "Save"
     watch:
-      namePlaceholder: "Something to watch"
+      namePlaceholder: "Add something to watch"
       save: "Save"
       interval:
         hourly: "Hourly"
@@ -26,9 +26,6 @@ window.doa.i18n.en =
       noneDown: "All is good!"
       someDown: "Smells dead"
       allDown: "It's dead Jim"
-      downCount:
-        more: "%{n} down"
-      newCount:
-        more: "%{n} waiting"
-      upCount:
-        more: "%{n} up"
+      downCount: "__n__ down"
+      newCount: "__n__ waiting"
+      upCount: "__n__ up"

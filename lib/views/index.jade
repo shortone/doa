@@ -8,7 +8,9 @@ block body
       .row-fluid
         .span8.offset2
           #watches(ng-controller = 'WatchesController')
-            p.info
+            p.info(ng-class = 'countWatches()|watchClimateClass')
+              strong {{watchClimateText()}}
+              span(ng-if = 'watches.length')  &mdash; {{watchNumbersText()}}
             include _newWatchForm
             .watches
               .watch(ng-repeat = 'watch in watches', ng-controller = 'WatchController', ng-class = 'watch|watchClass:ui').clearfix

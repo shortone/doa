@@ -1,7 +1,7 @@
 source $HOME/.screenrc
 
 screen -t srv 0
-stuff "nodemon -w lib -w locales bin/doa"
+stuff "nodemon -w lib bin/doa"
 screen -t vim 1 $EDITOR -c GG
 screen -t zsh 2
 screen -t grunt 3
