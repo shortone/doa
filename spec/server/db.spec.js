@@ -7,8 +7,8 @@ var _ = require('underscore'),
 var matchers = require('./support/matchers'),
     support = require('./support/db'),
     Config = require('./support/mocks/config'),
-    MemoryDb = require('../lib/db/memory'),
-    YamlDb = require('../lib/db/yaml');
+    MemoryDb = require('../../lib/db/memory'),
+    YamlDb = require('../../lib/db/yaml');
 
 var tmpDir;
 

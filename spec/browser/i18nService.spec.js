@@ -5,9 +5,7 @@ describe("i18n service", function() {
 
   beforeEach(function() {
 
-    windowMock = {
-      i18n: new Object()
-    };
+    windowMock = { i18n: {} };
 
     module(function($provide) {
       $provide.value('$window', windowMock);

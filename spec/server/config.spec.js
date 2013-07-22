@@ -5,7 +5,7 @@ var _ = require('underscore'),
     temp = require('temp');
 
 var matchers = require('./support/matchers'),
-    Config = require('../lib/config');
+    Config = require('../../lib/config');
 
 var tmpDir = temp.mkdirSync(),
     tmpFile = path.join(tmpDir, 'doa.yml');

@@ -36,7 +36,7 @@ var log4jsMock = {
 };
 
 var Config = require('./support/mocks/config'),
-    Logger = require('../lib/logger').inject({
+    Logger = require('../../lib/logger').inject({
       log4js : log4jsMock
     });
 

@@ -5,7 +5,7 @@ var _ = require('underscore'),
     log4js = require('log4js'),
     path = require('path');
 
-var appRoot = path.resolve(path.join(__dirname, '..'));
+var appRoot = path.resolve(path.join(__dirname, '../..'));
 
 var mockData = {
 };
@@ -44,7 +44,7 @@ var log4jsMock = {
 var Config = require('./support/mocks/config'),
     Logger = require('./support/mocks/logger'),
     matchers = require('./support/matchers'),
-    AppExpress = require('../lib/express').inject({
+    AppExpress = require('../../lib/express').inject({
       accept : acceptMock,
       assets : assetsMock,
       express : expressMock,

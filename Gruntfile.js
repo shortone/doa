@@ -5,8 +5,14 @@ module.exports = function(grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
-    jshint : {
-      all : [ 'index.js', 'lib/**/*.js', '!lib/assets/js/vendor/**', 'spec/**/*.js' ]
+    jshint: {
+      all: [ 'index.js', 'lib/**/*.js', '!lib/assets/js/vendor/**', 'spec/**/*.js', '!spec/browser/support/angular*.js' ]
+    },
+
+    jasmine_node: {
+      projectRoot: 'spec/server',
+      requirejs: false,
+      forceExit: true
     }
   });
 
