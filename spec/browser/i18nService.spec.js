@@ -5,7 +5,9 @@ describe("i18n service", function() {
 
   beforeEach(function() {
 
-    windowMock = { i18n: {} };
+    windowMock = { i18n: { init: jasmine.createSpy() }, doa: { i18n: {} } };
+
+    module('doa');
 
     module(function($provide) {
       $provide.value('$window', windowMock);
