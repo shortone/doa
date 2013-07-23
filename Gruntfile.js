@@ -53,5 +53,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', [ 'jshint', 'jasmine_node' ]);
+  grunt.registerTask('default', [ 'jshint', 'karma:ci', 'jasmine_node' ]);
 };

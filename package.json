@@ -4,7 +4,8 @@
   "main": "./index.js",
   "bin": "./bin/doa",
   "scripts": {
-    "start": "node bin/doa"
+    "start": "node bin/doa",
+    "test": "grunt"
   },
   "dependencies": {
     "async": "~0.2.9",
