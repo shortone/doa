@@ -34,13 +34,13 @@ module.exports = function(grunt) {
     watch: {
 
       browser: {
-        files: [ 'lib/assets/js/**/*.js', 'lib/assets/js/**/*.coffee' ],
+        files: [ 'lib/assets/js/**/*.js', 'lib/assets/js/**/*.coffee', 'spec/browser/**/*.js' ],
         tasks: [ 'karma:ci' ],
         atBegin: true
       },
 
       server: {
-        files: [ 'lib/**/*.js', '!lib/assets/**' ],
+        files: [ 'lib/**/*.js', '!lib/assets/**', 'spec/server/**/*.js' ],
         tasks: [ 'jasmine_node' ],
         atBegin: true
       }
