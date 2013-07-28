@@ -19,7 +19,7 @@ var clearMockData = function() {
 var Config = require('./support/mocks/config'),
     Logger = require('./support/mocks/logger'),
     matchers = require('./support/matchers'),
-    Scheduler = require('../lib/scheduler').inject({
+    Scheduler = require('../../lib/scheduler').inject({
       cron : cronMock,
       Logger : Logger
     });
